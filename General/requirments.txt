@@ -1,0 +1,7 @@
+libraries, packages and programs needed to run 
+
+matplotlib
+xgboost = 3.4.1
+pandas= 3.0.6
+numpy = 2.4.4
+scikit-learn = 1.8.0

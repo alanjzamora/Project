@@ -1,0 +1,11 @@
+*.npz
+*.jsonl
+*.parquet
+
+__pycache__/
+*.pyc
+
+
+**/bodmas.npz
+.venv/
+venv/
