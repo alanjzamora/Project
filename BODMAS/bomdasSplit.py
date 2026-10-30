@@ -117,12 +117,24 @@ nearRowsToRemove = sorted(set(nearRowsToRemove))
 print("Groups crossing :", nearCrossGroups)
 print("Rows to remove:", len(nearRowsToRemove))
 
+
+removedNearRows = audit.loc[nearRowsToRemove]
+
+trainRemoved = (removedNearRows["split"] == "train").sum()
+validationRemoved = (removedNearRows["split"] == "validation").sum()
+testRemoved = (removedNearRows["split"] == "test").sum()
+
+#removed from splits 
+print("\nTrain removed:", trainRemoved)
+print("Validation removed:", validationRemoved)
+print("Test removed:", testRemoved)
+
 #results of audit 
 familyRows = audit[audit["family"].notna() & audit["split"].isin(["train", "validation", "test"])]
 familySplitCounts = familyRows.groupby("family")["split"].nunique()
 
 
-print("Families active splits:", len(familySplitCounts))
+print("\n Families active splits:", len(familySplitCounts))
 
 print("Families crossing splits:", (familySplitCounts > 1).sum())
 
